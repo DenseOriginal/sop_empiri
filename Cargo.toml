@@ -8,4 +8,5 @@ edition = "2021"
 [dependencies]
 csv = "1.1.6"
 rand = "0.8.5"
+rayon = "1.6.1"
 sorts = "0.6.1"
