@@ -4,14 +4,11 @@ use rayon::prelude::*;
 mod algs;
 
 fn main() {
-    let average_over_n_runs: usize = 10;
+    let average_over_n_runs: usize = 5;
     const SIZE: u64 = 1000;
-    const SAMPLES: u16 = 10;
+    const SAMPLES: u16 = 50;
 
     let steps = (1..=SAMPLES).map(|i| SIZE * i as u64).collect::<Vec<u64>>();
-
-    // println!("\nInsertion sort, multi thread");
-    // let insertion_data = test_algoritm_multi(sorts::insertion_sort, average_over_n_runs, steps.clone());
 
     println!("\nMerge sort, multi thread");
     let merge_data = test_algoritm_multi(algs::merge_sort, average_over_n_runs, steps.clone());
@@ -19,10 +16,9 @@ fn main() {
     println!("\nBubble sort, multi thread");
     let bubble_data = test_algoritm_multi(algs::bubble_sort, average_over_n_runs, steps.clone());
 
-    // println!("\nHeap sort, multi thread");
-    // let heap_data = test_algoritm_multi(sorts::heap_sort, average_over_n_runs, steps.clone());
-
-    let mut wtr = Writer::from_path("sorting-data.csv").unwrap();
+    let csv_name = format!("merge, bubble step={} samples={}.csv", SIZE, SAMPLES);
+    
+    let mut wtr = Writer::from_path(csv_name).unwrap();
     // wtr.write_record(&["N", "Insertion sort", "Merge sort", "Bubble sort", "Heap sort"])
     wtr.write_record(&["N", "Merge sort", "Bubble sort"])
         .unwrap();
