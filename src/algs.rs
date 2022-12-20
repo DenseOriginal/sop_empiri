@@ -1,5 +1,4 @@
-use std::cmp::Ordering;
-
+#[allow(dead_code)]
 pub fn merge_sort(x: &mut [u64]) -> usize {
     let n = x.len();
     let m = n / 2;
@@ -21,6 +20,7 @@ pub fn merge_sort(x: &mut [u64]) -> usize {
     comparisons
 }
 
+#[allow(dead_code)]
 fn merge(x1: &[u64], x2: &[u64], y: &mut [u64]) -> usize {
     assert_eq!(x1.len() + x2.len(), y.len());
     let mut i = 0;
@@ -50,6 +50,7 @@ fn merge(x1: &[u64], x2: &[u64], y: &mut [u64]) -> usize {
     comparisons
 }
 
+#[allow(dead_code)]
 pub fn bubble_sort(arr: &mut [u64]) -> usize {
     let mut comparisons = 0;
 
@@ -69,6 +70,7 @@ pub fn bubble_sort(arr: &mut [u64]) -> usize {
     comparisons
 }
 
+#[allow(dead_code)]
 pub fn quick_sort(list: &mut [u64]) -> usize {
     let mut comparisons = 0;
 
@@ -95,7 +97,9 @@ pub fn quick_sort(list: &mut [u64]) -> usize {
     comparisons
 }
 
+#[allow(dead_code)]
 const MIN_RUN: usize = 32;
+#[allow(dead_code)]
 pub fn timsort(arr: &mut [u64]) -> usize {
     let mut comparisons = 0;
 
@@ -225,6 +229,7 @@ pub fn timsort(arr: &mut [u64]) -> usize {
     comparisons
 }
 
+#[allow(dead_code)]
 pub fn insertion_sort(arr: &mut [u64]) -> usize {
     let mut comparisons = 0;
 
